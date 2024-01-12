@@ -1,0 +1,11 @@
+.indicator {
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .indicator.active {
+    color: #fff;
+    background: #666;
+  }
