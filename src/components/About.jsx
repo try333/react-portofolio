@@ -15,7 +15,7 @@ const About = () => {
         </div>
         <div className="flex flex-col mt-5 md:flex-row">
 
-          <img src={HeroImage} alt="my profile" className="rounded-2xl mx-auto w-[120px] md:w-[240px] lg:w-[300px] drop-shadowx" />
+          <img src={HeroImage} alt="my profile" className="mx-auto w-[120px] md:w-[240px] lg:w-[300px] drop-shadowx" />
 
           <table class="border-separate border-spacing-5 break-all text-lg lg:text-xl lg:mr-20">
             <tbody>
