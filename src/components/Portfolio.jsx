@@ -40,14 +40,14 @@ const Portfolio = () => {
             id: 0,
             src: laravelmovies,
             appname: "Laravel Movies Website",
-            link: "https://larax-movies.port333.site",
+            link: "https://github.com/try333/laravel-movies",
             stack: ["Laravel", "TailwindCSS"],
         },
         {
             id: 1,
             src: asistenP,
             appname: "Virtual Assistant with Speech Recognition",
-            link: "https://github.com/try333",
+            link: "https://www.upload-apk.com/en/S4KCcCxxy4nFtFE",
             stack: ["React Native", "JavaScript", "Realm"],
         },
         {

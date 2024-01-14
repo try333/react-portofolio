@@ -5,6 +5,7 @@ import php from "../assets/php.png";
 import javascript from "../assets/javascript.png";
 import reactImage from "../assets/react.png";
 import laravel from "../assets/laravel.png";
+import nextjs from "../assets/nextjs.png";
 import postman from "../assets/postman-icon.png";
 import github from "../assets/github.png";
 import jquery from "../assets/jquery.png";
@@ -55,6 +56,13 @@ const Skills = () => {
       src: laravel,
       title: "Laravel",
       style: "shadow-red-600",
+
+    },
+    {
+      id: 14,
+      src: nextjs,
+      title: "NextJS",
+      style: "shadow-white",
 
     },
     {
