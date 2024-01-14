@@ -9,3 +9,7 @@
     color: #fff;
     background: #666;
   }
+  .drop-shadowx {
+    filter: drop-shadow(-2px -1px 12px #ffffff);
+    -webkit-filter: drop-shadow(-2px -1px 12px #ffffff);
+}
