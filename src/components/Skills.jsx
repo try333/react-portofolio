@@ -47,7 +47,7 @@ const Skills = () => {
     {
       id: 5,
       src: reactImage,
-      title: "ReactJS",
+      title: "React",
       style: "shadow-blue-600",
     },
 
