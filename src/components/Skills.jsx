@@ -13,6 +13,7 @@ import tailwind from "../assets/tailwind.png";
 import bootstrap from "../assets/bootstrap.png";
 import mysql from "../assets/mysql.png";
 import firebase from "../assets/firebase.png";
+import nodejs from "../assets/nodejs.png";
 import "animate.css/animate.min.css";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 
@@ -56,6 +57,13 @@ const Skills = () => {
       src: laravel,
       title: "Laravel",
       style: "shadow-red-600",
+
+    },
+    {
+      id: 15,
+      src: nodejs,
+      title: "Node JS",
+      style: "shadow-green-600",
 
     },
     {
