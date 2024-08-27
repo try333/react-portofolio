@@ -13,3 +13,13 @@
     font-family: 'Raleway', sans-serif;
   }
 }
+
+@layer components {
+  .custom-indicator {
+    @apply bg-white; /* Pastikan @apply digunakan dengan utilitas yang valid */
+  }
+
+  .custom-indicator-active {
+    @apply bg-white; /* Gunakan hanya dalam konteks komponen atau base layer */
+  }
+}
