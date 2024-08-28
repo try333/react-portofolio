@@ -85,7 +85,7 @@ const Portfolio = () => {
       src: medical,
       appname: "Medical Checkup Appointment Web App",
       link: "http://medical-checkup.vercel.app",
-      stack: ["Next.js", "Tailwind", "AppWrite DB"],
+      stack: ["Next.js", "Typescript" "Tailwind", "AppWrite DB"],
     },
   ];
 
