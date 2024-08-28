@@ -49,7 +49,7 @@ const Portfolio = () => {
       src: laravelmovies,
       appname: "Laravel Movies Website",
       link: "https://github.com/try333/laravel-movies",
-      stack: ["Laravel", "TailwindCSS"],
+      stack: ["Laravel", "TailwindCSS", "REST API"],
     },
     {
       id: 1,
