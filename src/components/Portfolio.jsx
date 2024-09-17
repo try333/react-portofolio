@@ -37,7 +37,7 @@ const Portfolio = () => {
     return (
       <div
         className={`h-2 w-2 rounded-full mx-1 ${
-          index === currentSlide ? 'bg-white' : 'bg-gray-400'
+          index === currentSlide ? "bg-white" : "bg-gray-400"
         }`}
       ></div>
     );
@@ -55,14 +55,14 @@ const Portfolio = () => {
       id: 1,
       src: asistenP,
       appname: "Virtual Assistant with Speech Recognition",
-      link: "https://www.upload-apk.com/en/S4KCcCxxy4nFtFE",
+      link: "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
       stack: ["React Native", "JavaScript", "Realm"],
     },
     {
       id: 2,
       src: aksaraP,
       appname: "Indonesian Traditional Language Learning App",
-      link: "https://github.com/try333",
+      link: "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
       stack: ["React Native", "JavaScript", "Realm"],
     },
     {
@@ -70,7 +70,7 @@ const Portfolio = () => {
       src: lagunusatara,
       appname:
         "Indonesian national anthem songs search app with speech recognition",
-      link: "https://github.com/try333",
+      link: "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
       stack: ["React Native", "JavaScript", "Realm"],
     },
     {
@@ -85,7 +85,7 @@ const Portfolio = () => {
       src: medical,
       appname: "Medical Checkup Appointment Web App",
       link: "http://medical-checkup.vercel.app",
-      stack: ["Next.js", "Typescript" "Tailwind", "AppWrite DB"],
+      stack: ["Next.js", "Typescript", "Tailwind", "AppWrite DB"],
     },
   ];
 
@@ -108,9 +108,7 @@ const Portfolio = () => {
               <div className="slide-container w-full">
                 <Slide
                   slidesToShow={portfol}
-                  indicators={(index) => (
-                    <CustomIndicator index={index} />
-                  )}
+                  indicators={(index) => <CustomIndicator index={index} />}
                   transitionDuration={200}
                   canSwipe={true}
                   onChange={(oldIndex, newIndex) => setCurrentSlide(newIndex)}
