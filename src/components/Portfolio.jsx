@@ -136,10 +136,10 @@ const Portfolio = () => {
                           </a>
                         </div>
 
-                        <div className="flex justify-center pb-4">
-                          {porto.stack.map((stack) => (
-                            <p>
-                              <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 mx-1 rounded dark:bg-blue-900 dark:text-blue-300">
+                        <div className="flex justify-center pb-4 flex-wrap">
+                          {porto.stack.map((stack, index) => (
+                            <p key={index}>
+                              <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 mx-1 mb-1 rounded dark:bg-blue-900 dark:text-blue-300">
                                 {stack}
                               </span>
                             </p>
