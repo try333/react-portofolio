@@ -114,7 +114,7 @@ const Portfolio = () => {
                   onChange={(oldIndex, newIndex) => setCurrentSlide(newIndex)}
                   duration={5000}
                 >
-                  {portfolios.map((porto) => (
+                  {portfolios.reverse().map((porto) => (
                     <div className="each-slide w-full md:px-3" key={porto.id}>
                       <div className="shadow-md shadow-gray-600 rounded-lg">
                         <img

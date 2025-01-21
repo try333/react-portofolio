@@ -41,7 +41,7 @@ const SocialLinks = () => {
                     Resume <BsFillPersonLinesFill size={30} />
                 </>
             ),
-            href: '/CV_Tri_Hariadi_-_Web_Developer.pdf',
+            href: '/CV Tri Hariadi - Software Developer.pdf',
             style: 'rounded-br-md',
             download: true,
         },
