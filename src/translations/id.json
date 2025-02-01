@@ -1,0 +1,35 @@
+{
+    "navbar": {
+      "home": "Beranda",
+      "about": "Tentang",
+      "portfolio": "Portofolio",
+      "skills": "Keahlian",
+      "contact": "Kontak",
+      "portfolioTitle": "Portofolio"
+    },
+    "home": {
+      "title": "Pengembangan Web & Mobile",
+      "subTitle": "Saya seorang pengembang situs web dan aplikasi mobile yang berbasis di Indonesia.",
+      "cvButton": "Unduh CV"
+    },
+    "about": {
+      "title": "Tentang Saya",
+      "nameLabel": "Nama",
+      "addressLabel": "Alamat",
+      "address": "Parepare, Sulawesi Selatan"
+    },
+    "portfolio": {
+      "title": "Portofolio",
+      "subTitle": "Lihat beberapa karya saya di sini"
+    },
+    "skills": {
+      "title": "Keahlian",
+      "subTitle": "Ini adalah teknologi yang pernah saya gunakan"
+    },
+    "contact": {
+      "title": "Kontak",
+      "subTitle": "Isi formulir di bawah untuk menghubungi saya",
+      "sendButton": "Kirim Pesan"
+    }
+  }
+  

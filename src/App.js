@@ -8,6 +8,8 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import "./assets/loader.css";
 import Footer from "./components/Footer";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -38,6 +40,7 @@ const App = () => {
     }
   }, []);
   return (
+    <Provider store={store}>
     <div className="bg-gradient-to-b from-black to-gray-800">
       {loading ? (
         <div className="loader-container bg-gradient-to-b from-black to-gray-800">
@@ -57,6 +60,7 @@ const App = () => {
       )}
       ;
     </div>
+    </Provider>
   );
 };
 

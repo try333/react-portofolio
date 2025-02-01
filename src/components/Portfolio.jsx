@@ -11,11 +11,16 @@ import "react-slideshow-image/dist/styles.css";
 import "./Portfolio.css";
 import "animate.css/animate.min.css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import { useSelector } from "react-redux";
+import translations from "../translations";
 
 const Portfolio = () => {
   const [portfol, setPortfol] = useState(2);
   const [currentSlide, setCurrentSlide] = useState(0);
-  //choose the screen size
+
+  const language = useSelector((state) => state.language.language);
+  
+  // Choose the screen size
   const handleResize = () => {
     if (window.innerWidth < 700) {
       setPortfol(1);
@@ -26,12 +31,11 @@ const Portfolio = () => {
     }
   };
 
-  // create an event listener
+  // Create an event listener
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     handleResize();
-  });
-  // const indicators = (index) => (<div className="indicator">{index + 1}</div>);
+  }, []);
 
   const CustomIndicator = ({ index }) => {
     return (
@@ -43,51 +47,99 @@ const Portfolio = () => {
     );
   };
 
-  const portfolios = [
-    {
-      id: 0,
-      src: laravelmovies,
-      appname: "Laravel Movies Website",
-      link: "https://github.com/try333/laravel-movies",
-      stack: ["Laravel", "TailwindCSS", "REST API"],
-    },
-    {
-      id: 1,
-      src: asistenP,
-      appname: "Virtual Assistant with Speech Recognition",
-      link: "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
-      stack: ["React Native", "JavaScript", "Realm"],
-    },
-    {
-      id: 2,
-      src: aksaraP,
-      appname: "Indonesian Traditional Language Learning App",
-      link: "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
-      stack: ["React Native", "JavaScript", "Realm"],
-    },
-    {
-      id: 3,
-      src: lagunusatara,
-      appname:
-        "Indonesian national anthem songs search app with speech recognition",
-      link: "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
-      stack: ["React Native", "JavaScript", "Realm"],
-    },
-    {
-      id: 4,
-      src: arsitek,
-      appname: "Architect Website Landing Page",
-      link: "http://makna.projekx.my.id",
-      stack: ["Laravel", "Bootstrap 5", "MySQL"],
-    },
-    {
-      id: 5,
-      src: medical,
-      appname: "Medical Checkup Appointment Web App",
-      link: "http://medical-checkup.vercel.app",
-      stack: ["Next.js", "Typescript", "Tailwind", "AppWrite DB"],
-    },
-  ];
+  // Portfolio data for different languages
+  const portfolios = {
+    en: [
+      {
+        id: 0,
+        src: laravelmovies,
+        appname: "Laravel Movies Website",
+        link: "https://github.com/try333/laravel-movies",
+        stack: ["Laravel", "TailwindCSS", "REST API"],
+      },
+      {
+        id: 1,
+        src: asistenP,
+        appname: "Virtual Assistant with Speech Recognition",
+        link: "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
+        stack: ["React Native", "JavaScript", "Realm"],
+      },
+      {
+        id: 2,
+        src: aksaraP,
+        appname: "Indonesian Traditional Language Learning App",
+        link: "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
+        stack: ["React Native", "JavaScript", "Realm"],
+      },
+      {
+        id: 3,
+        src: lagunusatara,
+        appname:
+          "Indonesian national anthem songs search app with speech recognition",
+        link: "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
+        stack: ["React Native", "JavaScript", "Realm"],
+      },
+      {
+        id: 4,
+        src: arsitek,
+        appname: "Architect Website Landing Page",
+        link: "http://makna.projekx.my.id",
+        stack: ["Laravel", "Bootstrap 5", "MySQL"],
+      },
+      {
+        id: 5,
+        src: medical,
+        appname: "Medical Checkup Appointment Web App",
+        link: "http://medical-checkup.vercel.app",
+        stack: ["Next.js", "Typescript", "Tailwind", "AppWrite DB"],
+      },
+    ],
+    id: [
+      {
+        id: 0,
+        src: laravelmovies,
+        appname: "Situs Web Laravel Movies",
+        link: "https://github.com/try333/laravel-movies",
+        stack: ["Laravel", "TailwindCSS", "REST API"],
+      },
+      {
+        id: 1,
+        src: asistenP,
+        appname: "Asisten Virtual dengan Pengenalan Suara",
+        link: "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
+        stack: ["React Native", "JavaScript", "Realm"],
+      },
+      {
+        id: 2,
+        src: aksaraP,
+        appname: "Aplikasi Pembelajaran Bahasa Tradisional Indonesia",
+        link: "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
+        stack: ["React Native", "JavaScript", "Realm"],
+      },
+      {
+        id: 3,
+        src: lagunusatara,
+        appname:
+          "Aplikasi Pencarian Lagu Nasional Indonesia dengan Pengenalan Suara",
+        link: "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
+        stack: ["React Native", "JavaScript", "Realm"],
+      },
+      {
+        id: 4,
+        src: arsitek,
+        appname: "Halaman Landing Situs Web Arsitek",
+        link: "http://makna.projekx.my.id",
+        stack: ["Laravel", "Bootstrap 5", "MySQL"],
+      },
+      {
+        id: 5,
+        src: medical,
+        appname: "Aplikasi Web Janji Temu Pemeriksaan Kesehatan",
+        link: "http://medical-checkup.vercel.app",
+        stack: ["Next.js", "Typescript", "Tailwind", "AppWrite DB"],
+      },
+    ],
+  };
 
   return (
     <div
@@ -98,9 +150,9 @@ const Portfolio = () => {
         <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
           <div className="pb-8">
             <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-              Portfolio
+              {translations[language].portfolio.title}
             </p>
-            <p className="py-6">Check out some of my work right here</p>
+            <p className="py-6">{translations[language].portfolio.subTitle}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-8">
@@ -114,7 +166,7 @@ const Portfolio = () => {
                   onChange={(oldIndex, newIndex) => setCurrentSlide(newIndex)}
                   duration={5000}
                 >
-                  {portfolios.reverse().map((porto) => (
+                  {portfolios[language].reverse().map((porto) => (
                     <div className="each-slide w-full md:px-3" key={porto.id}>
                       <div className="shadow-md shadow-gray-600 rounded-lg">
                         <img
@@ -123,12 +175,9 @@ const Portfolio = () => {
                           className="rounded-md duration-200 hover:scale-105 w-full"
                         />
                         <div className="flex items-center justify-center text-center bottom-0">
-                          {/* <a href={link} target="_blank" className='text-center'> */}
                           <span className="px-6 py-3 duration-200 hover:scale-105">
                             {porto.appname}
                           </span>
-
-                          {/* </a> */}
                         </div>
                         <div className="flex justify-center mb-4">
                           <a href={porto.link} target="_blank">
