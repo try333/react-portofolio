@@ -10,6 +10,7 @@ import "./assets/loader.css";
 import Footer from "./components/Footer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -41,25 +42,26 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
-    <div className="bg-gradient-to-b from-black to-gray-800">
-      {loading ? (
-        <div className="loader-container bg-gradient-to-b from-black to-gray-800">
-          <div className="spinner"></div>
-        </div>
-      ) : (
-        <div className="main-content">
-          <NavBar />
-          <Home />
-          <About />
-          <Portfolio />
-          <Skills />
-          <Contact />
-          <SocialLinks />
-          <Footer />
-        </div>
-      )}
-      ;
-    </div>
+      <Analytics />
+      <div className="bg-gradient-to-b from-black to-gray-800">
+        {loading ? (
+          <div className="loader-container bg-gradient-to-b from-black to-gray-800">
+            <div className="spinner"></div>
+          </div>
+        ) : (
+          <div className="main-content">
+            <NavBar />
+            <Home />
+            <About />
+            <Portfolio />
+            <Skills />
+            <Contact />
+            <SocialLinks />
+            <Footer />
+          </div>
+        )}
+        ;
+      </div>
     </Provider>
   );
 };
