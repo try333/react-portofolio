@@ -23,10 +23,10 @@ const About = () => {
                 <td class="font-bold">Name:</td>
                 <td class="">Tri Hariadi Purnomo</td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td class=" font-bold">Date of Birth:</td>
                 <td class="">28 June 1997</td>
-              </tr>
+              </tr> */}
               <tr>
                 <td class="font-bold">Address:</td>
                 <td class="">
