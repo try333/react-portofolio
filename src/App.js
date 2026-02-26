@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import "./assets/loader.css";
 import Footer from "./components/Footer";
 import PortfolioPage from "./components/PortfolioPage";
+import LanguageInitializer from "./components/LanguageInitializer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { Analytics } from "@vercel/analytics/react";
@@ -35,6 +36,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Analytics />
+      <LanguageInitializer />
       <div className="bg-gradient-to-b from-black to-gray-800">
         {loading ? (
           <div className="loader-container bg-gradient-to-b from-black to-gray-800">
