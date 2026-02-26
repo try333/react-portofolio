@@ -47,7 +47,7 @@ const App = () => {
             <NavBar />
             <Home />
             <About />
-            <Portfolio limit={5} showViewMore={true} />
+            <Portfolio limit={6} showViewMore={true} />
             <Skills />
             <Contact />
             <SocialLinks />
