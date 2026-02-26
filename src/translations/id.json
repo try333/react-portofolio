@@ -1,35 +1,111 @@
 {
-    "navbar": {
-      "home": "Beranda",
-      "about": "Tentang",
-      "portfolio": "Portofolio",
-      "skills": "Keahlian",
-      "contact": "Kontak",
-      "portfolioTitle": "Portofolio"
-    },
-    "home": {
-      "title": "Pengembangan Web & Mobile",
-      "subTitle": "Saya seorang pengembang situs web dan aplikasi mobile yang berbasis di Indonesia.",
-      "cvButton": "Unduh CV"
-    },
-    "about": {
-      "title": "Tentang Saya",
-      "nameLabel": "Nama",
-      "addressLabel": "Alamat",
-      "address": "Parepare, Sulawesi Selatan"
-    },
-    "portfolio": {
-      "title": "Portofolio",
-      "subTitle": "Lihat beberapa karya saya di sini"
-    },
-    "skills": {
-      "title": "Keahlian",
-      "subTitle": "Ini adalah teknologi yang pernah saya gunakan"
-    },
-    "contact": {
-      "title": "Kontak",
-      "subTitle": "Isi formulir di bawah untuk menghubungi saya",
-      "sendButton": "Kirim Pesan"
-    }
+  "navbar": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "portfolio": "Portofolio",
+    "skills": "Keahlian",
+    "contact": "Kontak",
+    "portfolioTitle": "Portofolio"
+  },
+  "home": {
+    "title": "Pengembangan Web & Mobile",
+    "subTitle": "Saya seorang pengembang situs web dan aplikasi mobile yang berbasis di Indonesia.",
+    "cvButton": "Unduh CV"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "nameLabel": "Nama",
+    "addressLabel": "Alamat",
+    "address": "Parepare, Sulawesi Selatan"
+  },
+  "portfolio": {
+    "title": "Portofolio",
+    "subTitle": "Lihat beberapa karya saya di sini",
+    "visitButton": "Lihat Proyek",
+    "closeButton": "Tutup",
+    "items": [
+      {
+        "id": "laravelMovies",
+        "imageKey": "laravelMovies",
+        "appname": "Situs Web Laravel Movies",
+        "description": "Aplikasi katalog film berbasis web menggunakan Laravel dengan pengelolaan data berbasis API dan antarmuka responsif.",
+        "link": "https://github.com/try333/laravel-movies",
+        "stack": [
+          "Laravel",
+          "TailwindCSS",
+          "REST API"
+        ]
+      },
+      {
+        "id": "virtualAssistant",
+        "imageKey": "virtualAssistant",
+        "appname": "Asisten Virtual dengan Pengenalan Suara",
+        "description": "Asisten virtual mobile yang menerima perintah suara dan menjalankan fitur dengan pengenalan ucapan di perangkat.",
+        "link": "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
+        "stack": [
+          "React Native",
+          "JavaScript",
+          "Realm"
+        ]
+      },
+      {
+        "id": "aksaraApp",
+        "imageKey": "aksaraApp",
+        "appname": "Aplikasi Pembelajaran Bahasa Tradisional Indonesia",
+        "description": "Aplikasi edukasi untuk belajar aksara dan bahasa tradisional Indonesia melalui materi interaktif dan kuis.",
+        "link": "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
+        "stack": [
+          "React Native",
+          "JavaScript",
+          "Realm"
+        ]
+      },
+      {
+        "id": "laguNusantara",
+        "imageKey": "laguNusantara",
+        "appname": "Aplikasi Pencarian Lagu Nasional Indonesia",
+        "description": "Aplikasi pencarian lagu nasional Indonesia dengan dukungan pengenalan suara agar proses pencarian lebih cepat.",
+        "link": "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
+        "stack": [
+          "React Native",
+          "JavaScript",
+          "Realm"
+        ]
+      },
+      {
+        "id": "architectLanding",
+        "imageKey": "architectLanding",
+        "appname": "Halaman Landing Situs Web Arsitek",
+        "description": "Landing page modern untuk bisnis arsitektur yang menonjolkan profil layanan dengan tampilan yang bersih.",
+        "link": "http://makna.projekx.my.id",
+        "stack": [
+          "Laravel",
+          "Bootstrap 5",
+          "MySQL"
+        ]
+      },
+      {
+        "id": "medicalAppointment",
+        "imageKey": "medicalAppointment",
+        "appname": "Aplikasi Web Janji Temu Pemeriksaan Kesehatan",
+        "description": "Aplikasi web untuk pemesanan jadwal medical checkup dengan alur penjadwalan yang mudah dan pengelolaan data pasien.",
+        "link": "http://medical-checkup.vercel.app",
+        "stack": [
+          "Next.js",
+          "Typescript",
+          "Tailwind",
+          "AppWrite DB"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Keahlian",
+    "subTitle": "Ini adalah teknologi yang pernah saya gunakan"
+  },
+  "contact": {
+    "title": "Kontak",
+    "subTitle": "Isi formulir di bawah untuk menghubungi saya",
+    "sendButton": "Kirim Pesan"
   }
-  
+}
