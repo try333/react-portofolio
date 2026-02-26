@@ -97,7 +97,11 @@
           "AppWrite DB"
         ]
       }
-    ]
+    ],
+    "viewMoreButton": "Lihat Semua",
+    "pageTitle": "Semua Proyek Portofolio",
+    "pageSubtitle": "Jelajahi semua proyek lengkap dengan detail, teknologi, dan tautan demo.",
+    "backHome": "Kembali ke Beranda"
   },
   "skills": {
     "title": "Keahlian",

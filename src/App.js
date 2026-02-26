@@ -8,38 +8,30 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import "./assets/loader.css";
 import Footer from "./components/Footer";
+import PortfolioPage from "./components/PortfolioPage";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   document.title = "Tri Hariadi Purnomo - Web and Mobile Development";
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 1000);
-  // }, []);
+
   useEffect(() => {
-    // callback function to call when event triggers
     const onPageLoad = () => {
-      console.log("page loaded");
-      // do something else
       setLoading(false);
     };
 
-    // Check if the page has already loaded
     if (document.readyState === "complete") {
       onPageLoad();
     } else {
       setLoading(true);
       window.addEventListener("load", onPageLoad, false);
-      // Remove the event listener when component unmounts
-      console.log("loading");
       return () => window.removeEventListener("load", onPageLoad);
     }
   }, []);
+
+  const isPortfolioPage = window.location.pathname === "/portfolio";
+
   return (
     <Provider store={store}>
       <Analytics />
@@ -48,19 +40,20 @@ const App = () => {
           <div className="loader-container bg-gradient-to-b from-black to-gray-800">
             <div className="spinner"></div>
           </div>
+        ) : isPortfolioPage ? (
+          <PortfolioPage />
         ) : (
           <div className="main-content">
             <NavBar />
             <Home />
             <About />
-            <Portfolio />
+            <Portfolio limit={5} showViewMore={true} />
             <Skills />
             <Contact />
             <SocialLinks />
             <Footer />
           </div>
         )}
-        ;
       </div>
     </Provider>
   );

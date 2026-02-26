@@ -97,7 +97,11 @@
           "AppWrite DB"
         ]
       }
-    ]
+    ],
+    "viewMoreButton": "View More",
+    "pageTitle": "All Portfolio Projects",
+    "pageSubtitle": "Explore all projects with details, technology stack, and demo links.",
+    "backHome": "Back to Home"
   },
   "skills": {
     "title": "Skills",

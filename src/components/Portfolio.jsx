@@ -21,21 +21,27 @@ const portfolioImages = {
   medicalAppointment: medical,
 };
 
-const Portfolio = () => {
+const Portfolio = ({ limit = null, showViewMore = false }) => {
   const [selectedPortfolio, setSelectedPortfolio] = useState(null);
   const language = useSelector((state) => state.language.language);
 
   const portfolios = useMemo(() => {
     const translatedItems = translations[language].portfolio.items || [];
 
-    return translatedItems
+    const mappedItems = translatedItems
       .map((item) => ({
         ...item,
         src: portfolioImages[item.imageKey],
       }))
       .filter((item) => item.src)
       .reverse();
-  }, [language]);
+
+    if (typeof limit === "number") {
+      return mappedItems.slice(0, limit);
+    }
+
+    return mappedItems;
+  }, [language, limit]);
 
   return (
     <div
@@ -48,7 +54,7 @@ const Portfolio = () => {
             <p className="text-4xl font-bold inline border-b-4 border-gray-500">
               {translations[language].portfolio.title}
             </p>
-            <p className="py-6">{translations[language].portfolio.subTitle}</p>
+            <p className="py-6 text-gray-300">{translations[language].portfolio.subTitle}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -56,21 +62,27 @@ const Portfolio = () => {
               <button
                 key={porto.id}
                 type="button"
-                className="text-left shadow-md shadow-gray-600 rounded-lg overflow-hidden bg-gray-900 hover:scale-105 transition duration-200"
+                className="text-left rounded-xl overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 border border-gray-700/70 shadow-lg shadow-black/40 hover:-translate-y-2 hover:shadow-cyan-600/20 hover:border-cyan-500/40 transition duration-300"
                 onClick={() => setSelectedPortfolio(porto)}
               >
-                <img
-                  src={porto.src}
-                  alt={porto.appname}
-                  className="rounded-t-md h-52 w-full object-cover"
-                />
+                <div className="relative">
+                  <img
+                    src={porto.src}
+                    alt={porto.appname}
+                    className="h-52 w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <h3 className="absolute bottom-3 left-3 right-3 text-sm md:text-base font-semibold line-clamp-2">
+                    {porto.appname}
+                  </h3>
+                </div>
                 <div className="p-4">
-                  <h3 className="font-semibold min-h-[56px]">{porto.appname}</h3>
+                  <p className="text-gray-400 text-sm line-clamp-2">{porto.description}</p>
                   <div className="flex flex-wrap mt-3">
                     {porto.stack.map((stack, index) => (
                       <span
                         key={index}
-                        className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 mr-1 mb-1 rounded dark:bg-blue-900 dark:text-blue-300"
+                        className="bg-blue-900/60 text-blue-200 text-xs font-medium px-2.5 py-1 mr-1 mb-1 rounded-full border border-blue-500/30"
                       >
                         {stack}
                       </span>
@@ -80,6 +92,17 @@ const Portfolio = () => {
               </button>
             ))}
           </div>
+
+          {showViewMore && (
+            <div className="mt-10 flex justify-center">
+              <a
+                href="/portfolio"
+                className="px-6 py-3 rounded-md bg-cyan-600 hover:bg-cyan-500 transition font-medium"
+              >
+                {translations[language].portfolio.viewMoreButton}
+              </a>
+            </div>
+          )}
         </div>
       </AnimationOnScroll>
 
@@ -90,7 +113,7 @@ const Portfolio = () => {
           role="presentation"
         >
           <div
-            className="bg-gray-900 rounded-lg max-w-lg w-full overflow-hidden"
+            className="bg-gray-900 rounded-lg max-w-lg w-full overflow-hidden border border-gray-700"
             onClick={(event) => event.stopPropagation()}
             role="dialog"
             aria-modal="true"
