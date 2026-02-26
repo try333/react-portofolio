@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../redux/languageSlice";
 import translations from "../translations";
 
-const NavBar = () => {
+const NavBar = ({ isPortfolioPage = false }) => {
   const [nav, setNav] = useState(false);
   const dispatch = useDispatch();
   const language = useSelector((state) => state.language.language);
@@ -24,6 +24,30 @@ const NavBar = () => {
     setNav(false);
   };
 
+  const renderDesktopLinks = () => {
+    if (isPortfolioPage) {
+      return (
+        <a
+          href="/"
+          className="px-4 cursor-pointer capitalize font-medium text-gray-300 hover:scale-105 duration-200"
+        >
+          {translations[language].portfolio.backHome}
+        </a>
+      );
+    }
+
+    return links.map(({ id, link }) => (
+      <li
+        key={id}
+        className="px-4 cursor-pointer capitalize font-medium text-gray-300 hover:scale-105 duration-200"
+      >
+        <Link to={link} smooth duration={500} onClick={() => setNav(false)}>
+          {translations[language].navbar[link]}
+        </Link>
+      </li>
+    ));
+  };
+
   return (
     <div className="flex justify-between items-center w-full h-20 px-4 text-white bg-black fixed top-0 left-0 z-50">
       <div>
@@ -33,23 +57,7 @@ const NavBar = () => {
       </div>
 
       <div className="hidden md:flex items-center">
-        <ul className="flex">
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize font-medium text-gray-300 hover:scale-105 duration-200"
-            >
-              <Link
-                to={link}
-                smooth
-                duration={500}
-                onClick={() => setNav(false)}
-              >
-                {translations[language].navbar[link]}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ul className="flex">{renderDesktopLinks()}</ul>
 
         <div className="ml-4">
           <select
@@ -63,7 +71,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Hamburger Icon for Mobile */}
       <div
         onClick={() => setNav(!nav)}
         className="cursor-pointer pr-4 z-50 text-gray-300 md:hidden"
@@ -71,7 +78,6 @@ const NavBar = () => {
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center transition-transform duration-300 ${
           nav ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
@@ -89,21 +95,21 @@ const NavBar = () => {
           </select>
         </div>
         <ul className="text-center">
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
-            >
-              <Link
-                to={link}
-                smooth
-                duration={500}
-                onClick={() => setNav(false)}
-              >
-                {translations[language].navbar[link]}
-              </Link>
+          {isPortfolioPage ? (
+            <li className="px-4 py-6 text-4xl">
+              <a href="/" onClick={() => setNav(false)}>
+                {translations[language].portfolio.backHome}
+              </a>
             </li>
-          ))}
+          ) : (
+            links.map(({ id, link }) => (
+              <li key={id} className="px-4 cursor-pointer capitalize py-6 text-4xl">
+                <Link to={link} smooth duration={500} onClick={() => setNav(false)}>
+                  {translations[language].navbar[link]}
+                </Link>
+              </li>
+            ))
+          )}
         </ul>
       </div>
     </div>

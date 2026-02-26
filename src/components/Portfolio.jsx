@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import aksaraP from "../assets/portfolio/aksaraportfolio.jpg";
 import asistenP from "../assets/portfolio/asistenportfolio.jpg";
 import lagunusatara from "../assets/portfolio/laguportfolio.jpg";
@@ -6,140 +6,42 @@ import laravelmovies from "../assets/portfolio/laravelmovies.PNG";
 import arsitek from "../assets/portfolio/makna-design.png";
 import medical from "../assets/portfolio/medical.png";
 import LinkIcon from "../assets/link.png";
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
 import "./Portfolio.css";
 import "animate.css/animate.min.css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { useSelector } from "react-redux";
 import translations from "../translations";
 
-const Portfolio = () => {
-  const [portfol, setPortfol] = useState(2);
-  const [currentSlide, setCurrentSlide] = useState(0);
+const portfolioImages = {
+  laravelMovies: laravelmovies,
+  virtualAssistant: asistenP,
+  aksaraApp: aksaraP,
+  laguNusantara: lagunusatara,
+  architectLanding: arsitek,
+  medicalAppointment: medical,
+};
 
+const Portfolio = ({ limit = null, showViewMore = false }) => {
+  const [selectedPortfolio, setSelectedPortfolio] = useState(null);
   const language = useSelector((state) => state.language.language);
-  
-  // Choose the screen size
-  const handleResize = () => {
-    if (window.innerWidth < 700) {
-      setPortfol(1);
-    } else if (window.innerWidth < 992) {
-      setPortfol(2);
-    } else {
-      setPortfol(3);
+
+  const portfolios = useMemo(() => {
+    const translatedItems = translations[language].portfolio.items || [];
+
+    const mappedItems = translatedItems
+      .map((item) => ({
+        ...item,
+        src: portfolioImages[item.imageKey],
+      }))
+      .filter((item) => item.src)
+      .reverse();
+
+    if (typeof limit === "number") {
+      return mappedItems.slice(0, limit);
     }
-  };
 
-  // Create an event listener
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-  }, []);
-
-  const CustomIndicator = ({ index }) => {
-    return (
-      <div
-        className={`h-2 w-2 rounded-full mx-1 ${
-          index === currentSlide ? "bg-white" : "bg-gray-400"
-        }`}
-      ></div>
-    );
-  };
-
-  // Portfolio data for different languages
-  const portfolios = {
-    en: [
-      {
-        id: 0,
-        src: laravelmovies,
-        appname: "Laravel Movies Website",
-        link: "https://github.com/try333/laravel-movies",
-        stack: ["Laravel", "TailwindCSS", "REST API"],
-      },
-      {
-        id: 1,
-        src: asistenP,
-        appname: "Virtual Assistant with Speech Recognition",
-        link: "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
-        stack: ["React Native", "JavaScript", "Realm"],
-      },
-      {
-        id: 2,
-        src: aksaraP,
-        appname: "Indonesian Traditional Language Learning App",
-        link: "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
-        stack: ["React Native", "JavaScript", "Realm"],
-      },
-      {
-        id: 3,
-        src: lagunusatara,
-        appname:
-          "Indonesian national anthem songs search app with speech recognition",
-        link: "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
-        stack: ["React Native", "JavaScript", "Realm"],
-      },
-      {
-        id: 4,
-        src: arsitek,
-        appname: "Architect Website Landing Page",
-        link: "http://makna.projekx.my.id",
-        stack: ["Laravel", "Bootstrap 5", "MySQL"],
-      },
-      {
-        id: 5,
-        src: medical,
-        appname: "Medical Checkup Appointment Web App",
-        link: "http://medical-checkup.vercel.app",
-        stack: ["Next.js", "Typescript", "Tailwind", "AppWrite DB"],
-      },
-    ],
-    id: [
-      {
-        id: 0,
-        src: laravelmovies,
-        appname: "Situs Web Laravel Movies",
-        link: "https://github.com/try333/laravel-movies",
-        stack: ["Laravel", "TailwindCSS", "REST API"],
-      },
-      {
-        id: 1,
-        src: asistenP,
-        appname: "Asisten Virtual dengan Pengenalan Suara",
-        link: "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
-        stack: ["React Native", "JavaScript", "Realm"],
-      },
-      {
-        id: 2,
-        src: aksaraP,
-        appname: "Aplikasi Pembelajaran Bahasa Tradisional Indonesia",
-        link: "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
-        stack: ["React Native", "JavaScript", "Realm"],
-      },
-      {
-        id: 3,
-        src: lagunusatara,
-        appname:
-          "Aplikasi Pencarian Lagu Nasional Indonesia dengan Pengenalan Suara",
-        link: "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
-        stack: ["React Native", "JavaScript", "Realm"],
-      },
-      {
-        id: 4,
-        src: arsitek,
-        appname: "Halaman Landing Situs Web Arsitek",
-        link: "http://makna.projekx.my.id",
-        stack: ["Laravel", "Bootstrap 5", "MySQL"],
-      },
-      {
-        id: 5,
-        src: medical,
-        appname: "Aplikasi Web Janji Temu Pemeriksaan Kesehatan",
-        link: "http://medical-checkup.vercel.app",
-        stack: ["Next.js", "Typescript", "Tailwind", "AppWrite DB"],
-      },
-    ],
-  };
+    return mappedItems;
+  }, [language, limit]);
 
   return (
     <div
@@ -152,57 +54,112 @@ const Portfolio = () => {
             <p className="text-4xl font-bold inline border-b-4 border-gray-500">
               {translations[language].portfolio.title}
             </p>
-            <p className="py-6">{translations[language].portfolio.subTitle}</p>
+            <p className="py-6 text-gray-300">{translations[language].portfolio.subTitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-8">
-            <div className="w-full">
-              <div className="slide-container w-full">
-                <Slide
-                  slidesToShow={portfol}
-                  indicators={(index) => <CustomIndicator index={index} />}
-                  transitionDuration={200}
-                  canSwipe={true}
-                  onChange={(oldIndex, newIndex) => setCurrentSlide(newIndex)}
-                  duration={5000}
-                >
-                  {portfolios[language].reverse().map((porto) => (
-                    <div className="each-slide w-full md:px-3" key={porto.id}>
-                      <div className="shadow-md shadow-gray-600 rounded-lg">
-                        <img
-                          src={porto.src}
-                          alt=""
-                          className="rounded-md duration-200 hover:scale-105 w-full"
-                        />
-                        <div className="flex items-center justify-center text-center bottom-0">
-                          <span className="px-6 py-3 duration-200 hover:scale-105">
-                            {porto.appname}
-                          </span>
-                        </div>
-                        <div className="flex justify-center mb-4">
-                          <a href={porto.link} target="_blank">
-                            <img src={LinkIcon} alt="" className="w-8 h-8" />
-                          </a>
-                        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {portfolios.map((porto) => (
+              <button
+                key={porto.id}
+                type="button"
+                className="text-left rounded-xl overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 border border-gray-700/70 shadow-lg shadow-black/40 hover:-translate-y-2 hover:shadow-cyan-600/20 hover:border-cyan-500/40 transition duration-300"
+                onClick={() => setSelectedPortfolio(porto)}
+              >
+                <div className="relative">
+                  <img
+                    src={porto.src}
+                    alt={porto.appname}
+                    className="h-52 w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <h3 className="absolute bottom-3 left-3 right-3 text-sm md:text-base font-semibold line-clamp-2">
+                    {porto.appname}
+                  </h3>
+                </div>
+                <div className="p-4">
+                  <p className="text-gray-400 text-sm line-clamp-2">{porto.description}</p>
+                  <div className="flex flex-wrap mt-3">
+                    {porto.stack.map((stack, index) => (
+                      <span
+                        key={index}
+                        className="bg-blue-900/60 text-blue-200 text-xs font-medium px-2.5 py-1 mr-1 mb-1 rounded-full border border-blue-500/30"
+                      >
+                        {stack}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
 
-                        <div className="flex justify-center pb-4 flex-wrap">
-                          {porto.stack.map((stack, index) => (
-                            <p key={index}>
-                              <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 mx-1 mb-1 rounded dark:bg-blue-900 dark:text-blue-300">
-                                {stack}
-                              </span>
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </Slide>
+          {showViewMore && (
+            <div className="mt-10 flex justify-center">
+              <a
+                href="/portfolio"
+                className="px-6 py-3 rounded-md bg-cyan-600 hover:bg-cyan-500 transition font-medium"
+              >
+                {translations[language].portfolio.viewMoreButton}
+              </a>
+            </div>
+          )}
+        </div>
+      </AnimationOnScroll>
+
+      {selectedPortfolio && (
+        <div
+          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedPortfolio(null)}
+          role="presentation"
+        >
+          <div
+            className="bg-gray-900 rounded-lg max-w-lg w-full overflow-hidden border border-gray-700"
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            <img
+              src={selectedPortfolio.src}
+              alt={selectedPortfolio.appname}
+              className="w-full h-60 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-3">{selectedPortfolio.appname}</h3>
+              <p className="text-gray-300 mb-4">{selectedPortfolio.description}</p>
+
+              <div className="flex flex-wrap mb-5">
+                {selectedPortfolio.stack.map((stack, index) => (
+                  <span
+                    key={index}
+                    className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 mr-1 mb-1 rounded dark:bg-blue-900 dark:text-blue-300"
+                  >
+                    {stack}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center justify-between gap-4">
+                <a
+                  href={selectedPortfolio.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-700 hover:bg-blue-600 transition"
+                >
+                  <img src={LinkIcon} alt="Link" className="w-5 h-5" />
+                  {translations[language].portfolio.visitButton}
+                </a>
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-md border border-gray-500 hover:bg-gray-800 transition"
+                  onClick={() => setSelectedPortfolio(null)}
+                >
+                  {translations[language].portfolio.closeButton}
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </AnimationOnScroll>
+      )}
     </div>
   );
 };

@@ -20,7 +20,88 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "subTitle": "Check out some of my work right here"
+    "subTitle": "Check out some of my work right here",
+    "visitButton": "Visit Project",
+    "closeButton": "Close",
+    "items": [
+      {
+        "id": "laravelMovies",
+        "imageKey": "laravelMovies",
+        "appname": "Laravel Movies Website",
+        "description": "A movie catalog web app built with Laravel that features API-based data management and a responsive user interface.",
+        "link": "https://github.com/try333/laravel-movies",
+        "stack": [
+          "Laravel",
+          "TailwindCSS",
+          "REST API"
+        ]
+      },
+      {
+        "id": "virtualAssistant",
+        "imageKey": "virtualAssistant",
+        "appname": "Virtual Assistant with Speech Recognition",
+        "description": "A mobile virtual assistant that listens to voice input and performs commands using speech recognition on-device.",
+        "link": "https://drive.google.com/file/d/18BrUUVHItjanHi148V9Ld4pl2hnvak90/view?usp=drive_link",
+        "stack": [
+          "React Native",
+          "JavaScript",
+          "Realm"
+        ]
+      },
+      {
+        "id": "aksaraApp",
+        "imageKey": "aksaraApp",
+        "appname": "Indonesian Traditional Language Learning App",
+        "description": "An educational app for learning Indonesian traditional scripts with interactive learning materials and quizzes.",
+        "link": "https://drive.google.com/file/d/1VhfFDyr7tFoKyCAXy1NftvFlRz7lHMut/view?usp=sharing",
+        "stack": [
+          "React Native",
+          "JavaScript",
+          "Realm"
+        ]
+      },
+      {
+        "id": "laguNusantara",
+        "imageKey": "laguNusantara",
+        "appname": "Indonesian National Anthem Search App",
+        "description": "A song search application for Indonesian national songs with voice recognition to make searching faster and easier.",
+        "link": "https://drive.google.com/file/d/15XSGdQ9AszaGrzWv5Eav9wuSta19ZhfI/view?usp=sharing",
+        "stack": [
+          "React Native",
+          "JavaScript",
+          "Realm"
+        ]
+      },
+      {
+        "id": "architectLanding",
+        "imageKey": "architectLanding",
+        "appname": "Architect Website Landing Page",
+        "description": "A modern landing page for an architecture business focused on clean presentation and service promotion.",
+        "link": "http://makna.projekx.my.id",
+        "stack": [
+          "Laravel",
+          "Bootstrap 5",
+          "MySQL"
+        ]
+      },
+      {
+        "id": "medicalAppointment",
+        "imageKey": "medicalAppointment",
+        "appname": "Medical Checkup Appointment Web App",
+        "description": "A web app for booking medical checkup appointments with a clean workflow for scheduling and patient data handling.",
+        "link": "http://medical-checkup.vercel.app",
+        "stack": [
+          "Next.js",
+          "Typescript",
+          "Tailwind",
+          "AppWrite DB"
+        ]
+      }
+    ],
+    "viewMoreButton": "View More",
+    "pageTitle": "All Portfolio Projects",
+    "pageSubtitle": "Explore all projects with details, technology stack, and demo links.",
+    "backHome": "Back to Home"
   },
   "skills": {
     "title": "Skills",
