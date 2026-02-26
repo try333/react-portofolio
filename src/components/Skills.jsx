@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import html from "../assets/html.png";
 import css from "../assets/css.png";
 import php from "../assets/php.png";
@@ -133,9 +133,8 @@ const Skills = () => {
         </AnimationOnScroll>
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px-0">
           {techs.map(({ id, src, title, style }) => (
-            <AnimationOnScroll animateIn="animate__flipInX" animateOnce={true}>
+            <AnimationOnScroll key={id} animateIn="animate__flipInX" animateOnce={true}>
               <div
-                key={id}
                 className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}
               >
                 <img src={src} alt="" className="w-20 h-20 mx-auto" />
