@@ -1,7 +1,7 @@
 {
   "name": "one-portfolio",
   "version": "0.1.0",
-  "homepage": "https://cv.port333.site/",
+  "homepage": "https://try333.vercel.app/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
